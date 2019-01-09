@@ -195,7 +195,7 @@ public class BusinessChoiceEdgeTest {
 				 // Copy files to specific location 
 				 // result.getName() will return name of test case so that screenshot name will be same as test case name
 				 FileHandler.copy(source, new File("./ScreenShots/"+result.getName()+"edge"+".png"));
-				 System.out.println("Successfully captured a screenshot");
+				 System.out.println("Successfully captured a screenshots");
 				 }catch (Exception e){
 				 System.out.println("Exception while taking screenshot "+e.getMessage());
 				 } 

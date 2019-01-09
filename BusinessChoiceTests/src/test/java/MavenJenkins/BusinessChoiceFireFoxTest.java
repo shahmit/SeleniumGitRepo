@@ -206,10 +206,12 @@ public class BusinessChoiceFireFoxTest {
 	public Object[] passData() {
 	
 	Object[] data = new Object[3];
-		
-	data[0]=".ihg.com/hotels/us/en/global/bc/home";
-	data[1]=".ihg.com/hotels/us/en/global/bc/3m?corporateNumber=101672";
-	data[2]=".ihg.com/hotels/us/en/global/bc/faa?corporateNumber=100185863";
+	String bchome = ".ihg.com/hotels/us/en/global/bc/home";
+	String threem = ".ihg.com/hotels/us/en/global/bc/3m?corporateNumber=101672";
+	String faa= ".ihg.com/hotels/us/en/global/bc/faa?corporateNumber=100185863";
+	data[0]=bchome;
+	data[1]= threem ;
+	data[2]= faa;
 		return data;
 		}
 	

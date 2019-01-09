@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.DataProvider;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -16,9 +16,9 @@ public class BusinessChoiceIE {
 	@Test(dataProvider= "URLsfromCorps")
   public void f(String url) {
 	  
-		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Browsers\\IEdriverserver.exe");
-		WebDriver driver =new InternetExplorerDriver();
-		
+		System.setProperty("webdriver.edge.driver", "C:\\Program Files\\Browsers\\MicrosoftWebDriver.exe");
+		WebDriver driver =new EdgeDriver();
+		driver.manage().window().maximize();
 		try {
 			Thread.sleep(2000L);
 		} catch (InterruptedException e2) {
@@ -33,6 +33,7 @@ public class BusinessChoiceIE {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		driver.manage().deleteAllCookies();
 		driver.get(url1);
 		driver.manage().window().maximize();
 		try {
@@ -42,20 +43,24 @@ public class BusinessChoiceIE {
 			e.printStackTrace();
 		}
 		//Sign in with the member details
-		/*driver.findElement(By.xpath("//div[contains(@class,'m-bottom-15 emailPCR')]/input")).sendKeys("176380600");
+		WebElement loginelement = driver.findElement(By.xpath("//div[contains(@class,'m-bottom-15 emailPCR')]/input"));
+		if (loginelement.isDisplayed()) {
+		driver.findElement(By.xpath("//div[contains(@class,'m-bottom-15 emailPCR')]/input")).sendKeys("176380600");
 		driver.findElement(By.xpath("//div[contains(@class,'m-bottom-15 pinPCR')]/input")).sendKeys("7890");
 		driver.findElement(By.xpath("//button[@id='tpiSubmitButton']")).click();
+		}
+		
 		//Navigates to the Corporate page
 		try {
 			Thread.sleep(3000l);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebElement Element = driver.findElement(By.xpath("//label[@for='destination']"));
 		js.executeScript("arguments[0].scrollIntoView();", Element);
-		driver.findElement(By.xpath("//input[@id='destination']")).sendKeys("Atlanta, GA, United States");
+		driver.findElement(By.xpath("//input[@id='destination']")).sendKeys("Las Vegas, NV, USA");
 		driver.findElement(By.xpath("//div[@class='checkin']//span[@title='Select to open calendar.'][contains(text(),'Select to open calendar.')]")).click();
 		try {
 			Thread.sleep(3000l);
@@ -109,7 +114,7 @@ public class BusinessChoiceIE {
 		//Select the Corporate Rate
 		driver.findElement(By.xpath("(//div[contains(text(),'Select Rate')])[2]")).click();
 		try {
-			Thread.sleep(3000L);
+			Thread.sleep(5000L);
 		} catch (InterruptedException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -182,11 +187,11 @@ public class BusinessChoiceIE {
 	@DataProvider(name="URLsfromCorps")
 	public Object[] passData() {
 	
-	Object[] data = new Object[1];
+	Object[] data = new Object[3];
 		
 	data[0]=".ihg.com/hotels/us/en/global/bc/home";
-	//data[1]=".ihg.com/hotels/us/en/global/bc/3m?corporateNumber=101672";
-	//data[2]=".ihg.com/hotels/us/en/global/bc/att?corporateNumber=150711";
+	data[1]=".ihg.com/hotels/us/en/global/bc/3m?corporateNumber=101672";
+	data[2]=".ihg.com/hotels/us/en/global/bc/att?corporateNumber=150711";
 		return data;
 		}
 	

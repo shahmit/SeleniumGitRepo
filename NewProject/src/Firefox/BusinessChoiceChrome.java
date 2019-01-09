@@ -49,7 +49,7 @@ public class BusinessChoiceChrome {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebElement Element = driver.findElement(By.xpath("//label[@for='destination']"));
 		js.executeScript("arguments[0].scrollIntoView();", Element);
-		driver.findElement(By.xpath("//input[@id='destination']")).sendKeys("Atlanta, GA, United States");
+		driver.findElement(By.xpath("//input[@id='destination']")).sendKeys("New York City, New York, USA");
 		driver.findElement(By.xpath("//div[@class='checkin']//span[@title='Select to open calendar.'][contains(text(),'Select to open calendar.')]")).click();
 		try {
 			Thread.sleep(3000l);
@@ -69,13 +69,13 @@ public class BusinessChoiceChrome {
 		driver.findElement(By.xpath("//input[@id='lessSearchSubmit']")).click();
 		//Select the available Hotel
 		try {
-			Thread.sleep(4000l);
+			Thread.sleep(6000l);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		//Click on the first hotel which has "Select Hotel" available 
-		driver.findElement(By.xpath("(//div[contains(text(),'SELECT HOTEL')])[1]")).click();
+		driver.findElement(By.xpath("(//div[contains(text(),'SELECT HOTEL')])[2]")).click();
 		try {
 			Thread.sleep(3000L);
 		} catch (InterruptedException e1) {

@@ -48,7 +48,7 @@ public class BusinessChoiceFireFox {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebElement Element = driver.findElement(By.xpath("//label[@for='destination']"));
 		js.executeScript("arguments[0].scrollIntoView();", Element);
-		driver.findElement(By.xpath("//input[@id='destination']")).sendKeys("Atlanta, GA, United States");
+		driver.findElement(By.xpath("//input[@id='destination']")).sendKeys("Austin, Texas, United States");
 		driver.findElement(By.xpath("//div[@class='checkin']//span[@title='Select to open calendar.'][contains(text(),'Select to open calendar.')]")).click();
 		try {
 			Thread.sleep(3000l);

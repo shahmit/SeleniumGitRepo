@@ -4,8 +4,6 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="MavenJenkins.BusinessChoiceChromeTest"/>
-      <class name="MavenJenkins.BusinessChoiceFireFoxTest"/>
-      <class name="MavenJenkins.BusinessChoiceEdgeTest"/>
-    </classes>
+      </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

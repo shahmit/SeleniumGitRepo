@@ -6,7 +6,7 @@
       <class name="MavenJenkins.BusinessChoiceChromeTest">
         <methods>
           <include name="screenShot"/>
-          <include name="f" invocation-numbers="1"/>
+          <include name="f" invocation-numbers="0 1"/>
         </methods>
       </class> <!-- MavenJenkins.BusinessChoiceChromeTest -->
     </classes>

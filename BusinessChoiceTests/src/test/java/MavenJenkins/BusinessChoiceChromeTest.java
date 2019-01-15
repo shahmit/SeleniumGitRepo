@@ -54,7 +54,7 @@ public class BusinessChoiceChromeTest {
 			e.printStackTrace();
 		}
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		WebElement Element = driver.findElement(By.xpath("//h1[@title='Search IHG Hotels Worldwide']"));
+		WebElement Element = driver.findElement(By.xpath("//div[@class='ResModule section']"));
 		js.executeScript("arguments[0].scrollIntoView();", Element);
 		driver.findElement(By.xpath("//input[@id='destination']")).click();
 		driver.findElement(By.xpath("//input[@id='destination']")).sendKeys("Washington Dc, DC, United States");
@@ -205,12 +205,12 @@ public class BusinessChoiceChromeTest {
 	@DataProvider(name="URLsfromCorps")
 	public Object[] passData() {
 	
-	Object[] data = new Object[46];
+	Object[] data = new Object[3];
 	
 	String bchome = ".ihg.com/hotels/us/en/global/bc/home";
 	String threem = ".ihg.com/hotels/us/en/global/bc/3m?corporateNumber=101672";
 	String att = ".ihg.com/hotels/us/en/global/bc/att?corporateNumber=150711";
-	String air = ".ihg.com/hotels/us/en/global/bc/air_products?corporateNumber=106861";
+	/*String air = ".ihg.com/hotels/us/en/global/bc/air_products?corporateNumber=106861";
 	String amex = ".ihg.com/hotels/us/en/global/bc/amex?corporateNumber=100194131";
 	String bakerhughes  = ".ihg.com/hotels/us/en/global/bc/bakerhughes?corporateNumber=100862713";
 	String barcklays = ".ihg.com/hotels/us/en/global/bc/barclays?corporateNumber=954414832";
@@ -253,11 +253,11 @@ public class BusinessChoiceChromeTest {
 	String veolia = ".ihg.com/hotels/us/en/global/bc/veolia?corporateNumber=100183846";
 	String wasteMgt = ".ihg.com/hotels/us/en/global/bc/waste_mgt?corporateNumber=123137";
 	String zenon = ".ihg.com/hotels/us/en/global/bc/zenon?corporateNumber=900000935";
-	
+	*/
 	data[0]=bchome;
 	data[1]= threem ;
 	data[2]= att;
-	data[3]= air;
+	/*data[3]= air;
 	data[4]= amex;
 	data[5] = bakerhughes;
 	data[6] = barcklays;
@@ -300,7 +300,7 @@ public class BusinessChoiceChromeTest {
 	data[43]= veolia;
 	data[44]=wasteMgt;
 	data[45]= zenon;
-	
+	*/
 	
 	return data;
 		}

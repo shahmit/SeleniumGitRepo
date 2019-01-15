@@ -3,12 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="MavenJenkins.BusinessChoiceEdgeTest">
+      <class name="MavenJenkins.BusinessChoiceFF">
         <methods>
-          <include name="screenShot"/>
-          <include name="f" invocation-numbers="1 2"/>
+          <include name="FireFox" invocation-numbers="0"/>
         </methods>
-      </class> <!-- MavenJenkins.BusinessChoiceEdgeTest -->
+      </class> <!-- MavenJenkins.BusinessChoiceFF -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -57,8 +57,7 @@
         <version>2.22.0</version>
          <configuration>
        <suiteXmlFiles>
-       <file>src/main/resources/testng.xml</file>
-       <suiteXmlFile>testng.xml</suiteXmlFile>>
+        <suiteXmlFile>src/main/resources/testng.xml</suiteXmlFile>>
        </suiteXmlFiles>
     </configuration>
     

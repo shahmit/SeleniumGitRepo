@@ -202,7 +202,7 @@ public class BusinessChoiceFFTest {
 				 File source=screenshot.getScreenshotAs(OutputType.FILE);
 				 // Copy files to specific location 
 				 // result.getName() will return name of test case so that screenshot name will be same as test case name
-				 FileHandler.copy(source, new File("./ScreenShots/"+result.getName()+"ffox"+".png"+data));
+				 FileHandler.copy(source, new File("./ScreenShots/"+result.getName()+"ffox"+".png"));
 				 System.out.println("Successfully captured a screenshot");
 				 }catch (Exception e){
 				 System.out.println("Exception while taking screenshot "+e.getMessage());

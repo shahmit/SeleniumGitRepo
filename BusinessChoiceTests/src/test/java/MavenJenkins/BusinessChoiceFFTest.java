@@ -1,16 +1,22 @@
 package MavenJenkins;
 
+import java.io.File;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -184,6 +190,25 @@ public class BusinessChoiceFFTest {
 			 	driver.quit();
 							  
   }
+	@AfterMethod
+	public void screenShot(ITestResult result) {
+		
+		if(ITestResult.FAILURE==result.getStatus()){
+		
+			try{
+				 // To create reference of TakesScreenshot
+				 TakesScreenshot screenshot=(TakesScreenshot)driver;
+				 // Call method to capture screenshot
+				 File source=screenshot.getScreenshotAs(OutputType.FILE);
+				 // Copy files to specific location 
+				 // result.getName() will return name of test case so that screenshot name will be same as test case name
+				 FileHandler.copy(source, new File("./ScreenShots/"+result.getName()+"ffox"+".png"+data));
+				 System.out.println("Successfully captured a screenshot");
+				 }catch (Exception e){
+				 System.out.println("Exception while taking screenshot "+e.getMessage());
+				 } 
+		}
+	}
 	@DataProvider(name="URLsfromCorps")
 	public Object[] passData() {
 	

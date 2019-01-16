@@ -113,7 +113,7 @@ public class BusinessChoiceFFTest {
 				}
 				driver.findElement(By.xpath("//div[@class='tab-pane ng-scope active']//div[@class='roomContainer first']//span[@class='ng-binding'][contains(text(),'SELECT ROOM')]")).click();
 				try {
-					Thread.sleep(3000L);
+					Thread.sleep(6000L);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

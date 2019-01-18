@@ -14,19 +14,22 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class BusinessChoiceChromeTest {
+public class BusinessChoiceChromeTest1to10 {
   
 	static WebDriver driver;
-	@Test(dataProvider= "URLsfromCorps")
+	@Test(dataProvider= "URLsfromCorps") 
+			
   public void f(String url) {
 	  
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Browsers\\chromedriver.exe");
 		driver =new ChromeDriver();
 		driver.manage().window().maximize();
-		System.out.println("Hi, how are you today?");
+		System.out.println("Hi, how are you today?"+ " This is the test for "+ url);
 		//Lunch the URL
 		String url1 = "https://ecom:ec0m@staging.www" + url;
 		try {
@@ -43,7 +46,7 @@ public class BusinessChoiceChromeTest {
 			e.printStackTrace();
 		}
 		//Sign in with the member details
-		driver.findElement(By.xpath("//div[contains(@class,'m-bottom-15 emailPCR')]/input")).sendKeys("176380600");
+		driver.findElement(By.xpath("//div[contains(@class,'m-bottom-15 emailPCR')]/input")).sendKeys("115234805");
 		driver.findElement(By.xpath("//div[contains(@class,'m-bottom-15 pinPCR')]/input")).sendKeys("7890");
 		driver.findElement(By.xpath("//button[@id='tpiSubmitButton']")).click();
 		//Navigates to the Corporate page
@@ -57,7 +60,11 @@ public class BusinessChoiceChromeTest {
 		WebElement Element = driver.findElement(By.xpath("//div[@class='ResModule section']"));
 		js.executeScript("arguments[0].scrollIntoView();", Element);
 		driver.findElement(By.xpath("//input[@id='destination']")).click();
-		driver.findElement(By.xpath("//input[@id='destination']")).sendKeys("Boston, MA, United States");
+		//Randomize the value in the destination field
+		List<String> givenList = Arrays.asList("Tallahassee, Florida, United States", "Boston, Massachusetts, United States", "Chicago, IL, USA", "Bloomington, Minnesota, United States","San Francisco, CA, USA" );
+		Random rand = new Random();
+	    String randomElement = givenList.get(rand.nextInt(givenList.size()));
+		driver.findElement(By.xpath("//input[@id='destination']")).sendKeys(randomElement);
 		driver.findElement(By.xpath("//div[@class='checkin']//span[@title='Select to open calendar.'][contains(text(),'Select to open calendar.')]")).click();
 		try {
 			Thread.sleep(3000l);
@@ -65,8 +72,8 @@ public class BusinessChoiceChromeTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		driver.findElement(By.xpath("//input[@id='checkInDate']")).sendKeys("Jan-26-2019");
-		driver.findElement(By.xpath("//input[@id='checkOutDate']")).sendKeys("Jan-29-2019");
+		driver.findElement(By.xpath("//input[@id='checkInDate']")).sendKeys("Jan-27-2019");
+		driver.findElement(By.xpath("//input[@id='checkOutDate']")).sendKeys("Jan-30-2019");
 		driver.findElement(By.xpath("//label[@for='ratePreference']")).click();
 		try {
 			Thread.sleep(2000l);
@@ -102,16 +109,33 @@ public class BusinessChoiceChromeTest {
 			System.out.println("Didnt find the Skip step");
 			
 		}
-		//Select the Room Type
-		driver.findElement(By.xpath("//div[@class='tab-pane ng-scope active']//div[@class='roomContainer first']//span[@class='ng-binding'][contains(text(),'SELECT ROOM')]")).click();
 		try {
 			Thread.sleep(3000L);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		//Select the Room Type
+		WebElement Element3 = driver.findElement(By.xpath("(//div[@class='roomColumnContainer']//aside//span[contains(.,'SELECT ROOM')])[1]"));
+		js.executeScript("arguments[0].scrollIntoView();", Element3);
+		Element3.click();
+		try {
+			Thread.sleep(4000L);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//Select the Corporate Rate
-		driver.findElement(By.xpath("(//div[contains(text(),'Select Rate')])[2]")).click();
+		try {
+			driver.findElement(By.xpath("(//div[contains(text(),'Select Rate')])[2]")).click();
+		}
+		catch (org.openqa.selenium.NoSuchElementException e) {
+		WebElement Element5 = driver.findElement(By.xpath("//div[contains(text(),'Select Rate')]"));
+		js.executeScript("arguments[0].scrollIntoView();", Element5);
+		Element5.click();
+		}
+		
 		try {
 			Thread.sleep(3000L);
 		} catch (InterruptedException e1) {
@@ -121,8 +145,8 @@ public class BusinessChoiceChromeTest {
 		//Enter Guest Information
 		
 	    //Scroll down to Payment Card Type field
-	    WebElement Element3 = driver.findElement(By.xpath("//div[@class='col-xs-12']//div[@class='row']/div[3]/div"));
-	 	js.executeScript("arguments[0].scrollIntoView();",Element3);
+	    WebElement Element4 = driver.findElement(By.xpath("//div[@class='col-xs-12']//div[@class='row']/div[3]/div"));
+	 	js.executeScript("arguments[0].scrollIntoView();",Element4);
 	 	 //identify Payment Type Method
 	    WebElement paymentmethod = driver.findElement(By.xpath("//button[@id='paymentCard']"));
 	    paymentmethod.click();
@@ -178,7 +202,7 @@ public class BusinessChoiceChromeTest {
 		}
 	 	WebElement ConfNum = driver.findElement(By.xpath("(//p[1]/span[1])[2]"));
 	 	String ConfNumval= ConfNum.getText();
-	 	System.out.println("This is the reservation number " +ConfNumval);
+	 	System.out.println("This is the reservation number " +ConfNumval+ " for the url "+url);
 	 	driver.quit();
 	
 	  
@@ -189,23 +213,25 @@ public class BusinessChoiceChromeTest {
 		if(ITestResult.FAILURE==result.getStatus()){
 		
 			try{
+				
 				 // To create reference of TakesScreenshot
 				 TakesScreenshot screenshot=(TakesScreenshot)driver;
 				 // Call method to capture screenshot
 				 File source=screenshot.getScreenshotAs(OutputType.FILE);
 				 // Copy files to specific location 
 				 // result.getName() will return name of test case so that screenshot name will be same as test case name
-				 FileHandler.copy(source, new File("./ScreenShots/"+result.getName()+"chrome"+".png"));
+				 FileHandler.copy(source, new File("./ScreenShots/"+result.getName()+"chrome"+ ".png"));
 				 System.out.println("Successfully captured a screenshot");
 				 }catch (Exception e){
 				 System.out.println("Exception while taking screenshot "+e.getMessage());
+				
 				 } 
 		}
 	}
 	@DataProvider(name="URLsfromCorps")
 	public Object[] passData() {
 	
-	Object[] data = new Object[46];
+	Object[] data = new Object[10];
 	
 	String bchome = ".ihg.com/hotels/us/en/global/bc/home";
 	String threem = ".ihg.com/hotels/us/en/global/bc/3m?corporateNumber=101672";
@@ -217,7 +243,7 @@ public class BusinessChoiceChromeTest {
 	String brinker =".ihg.com/hotels/us/en/global/bc/brinker?corporateNumber=100862233";
 	String collective = ".ihg.com/hotels/us/en/global/bc/collective?corporateNumber=100189116";
 	String comair= ".ihg.com/hotels/us/en/global/bc/comair?corporateNumber=100861831";
-	String conway = ".ihg.com/hotels/us/en/global/bc/conway?corporateNumber=100224634";
+	/*String conway = ".ihg.com/hotels/us/en/global/bc/conway?corporateNumber=100224634";
 	String cypress = ".ihg.com/hotels/us/en/global/bc/cyprexx?corporateNumber=100273209";
 	String delphi = ".ihg.com/hotels/us/en/global/bc/delphi?corporateNumber=100185640";
 	String dresser = ".ihg.com/hotels/us/en/global/bc/dresser?corporateNumber=127256";
@@ -253,7 +279,7 @@ public class BusinessChoiceChromeTest {
 	String veolia = ".ihg.com/hotels/us/en/global/bc/veolia?corporateNumber=100183846";
 	String wasteMgt = ".ihg.com/hotels/us/en/global/bc/waste_mgt?corporateNumber=123137";
 	String zenon = ".ihg.com/hotels/us/en/global/bc/zenon?corporateNumber=900000935";
-	
+	*/
 	data[0]=bchome;
 	data[1]= threem ;
 	data[2]= att;
@@ -264,7 +290,7 @@ public class BusinessChoiceChromeTest {
 	data[7]= brinker;
 	data[8]= collective;
 	data[9]= comair;
-	data[10]= conway;
+	/*data[10]= conway;
 	data[11]= cypress;
 	data[12]= delphi;
 	data[13]= dresser;
@@ -300,7 +326,7 @@ public class BusinessChoiceChromeTest {
 	data[43]= veolia;
 	data[44]=wasteMgt;
 	data[45]= zenon;
-	
+	*/
 	
 	return data;
 		}

@@ -212,20 +212,20 @@ public class BusinessChoiceFFTest {
 	@DataProvider(name="URLsfromCorps")
 	public Object[] passData() {
 	
-		Object[] data = new Object[46];
+		Object[] data = new Object[5];
 		
-		String bchome = ".ihg.com/hotels/us/en/global/bc/home";
+		/*String bchome = ".ihg.com/hotels/us/en/global/bc/home";
 		String threem = ".ihg.com/hotels/us/en/global/bc/3m?corporateNumber=101672";
 		String att = ".ihg.com/hotels/us/en/global/bc/att?corporateNumber=150711";
 		String air = ".ihg.com/hotels/us/en/global/bc/air_products?corporateNumber=106861";
 		String amex = ".ihg.com/hotels/us/en/global/bc/amex?corporateNumber=100194131";
-		String bakerhughes  = ".ihg.com/hotels/us/en/global/bc/bakerhughes?corporateNumber=100862713";
+		String bakerhughes  = ".ihg.com/hotels/us/en/global/bc/bakerhughes?corporateNumber=100862713";*/
 		String barcklays = ".ihg.com/hotels/us/en/global/bc/barclays?corporateNumber=954414832";
 		String brinker =".ihg.com/hotels/us/en/global/bc/brinker?corporateNumber=100862233";
 		String collective = ".ihg.com/hotels/us/en/global/bc/collective?corporateNumber=100189116";
 		String comair= ".ihg.com/hotels/us/en/global/bc/comair?corporateNumber=100861831";
 		String conway = ".ihg.com/hotels/us/en/global/bc/conway?corporateNumber=100224634";
-		String cypress = ".ihg.com/hotels/us/en/global/bc/cyprexx?corporateNumber=100273209";
+		/*String cypress = ".ihg.com/hotels/us/en/global/bc/cyprexx?corporateNumber=100273209";
 		String delphi = ".ihg.com/hotels/us/en/global/bc/delphi?corporateNumber=100185640";
 		String dresser = ".ihg.com/hotels/us/en/global/bc/dresser?corporateNumber=127256";
 		String eds =".ihg.com/hotels/us/en/global/bc/eds?corporateNumber=136905";
@@ -260,19 +260,19 @@ public class BusinessChoiceFFTest {
 		String veolia = ".ihg.com/hotels/us/en/global/bc/veolia?corporateNumber=100183846";
 		String wasteMgt = ".ihg.com/hotels/us/en/global/bc/waste_mgt?corporateNumber=123137";
 		String zenon = ".ihg.com/hotels/us/en/global/bc/zenon?corporateNumber=900000935";
-		
-		data[0]=bchome;
+		*/
+		/*data[0]=bchome;
 		data[1]= threem ;
 		data[2]= att;
 		data[3]= air;
 		data[4]= amex;
-		data[5] = bakerhughes;
-		data[6] = barcklays;
-		data[7]= brinker;
-		data[8]= collective;
-		data[9]= comair;
-		data[10]= conway;
-		data[11]= cypress;
+		data[5] = bakerhughes;*/
+		data[0] = barcklays;
+		data[1]= brinker;
+		data[2]= collective;
+		data[3]= comair;
+		data[4]= conway;
+		/*data[11]= cypress;
 		data[12]= delphi;
 		data[13]= dresser;
 		data[14]= eds;
@@ -306,7 +306,7 @@ public class BusinessChoiceFFTest {
 		data[42]= timHortons;
 		data[43]= veolia;
 		data[44]=wasteMgt;
-		data[45]= zenon;
+		data[45]= zenon;*/
 		
 		
 		return data;

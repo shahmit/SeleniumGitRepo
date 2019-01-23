@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class BusinessChoiceChromeTest1to10 {
+public class BusinessChoiceChromeTest11to20 {
   
 	static WebDriver driver;
 	@Test(dataProvider= "URLsfromCorps") 
@@ -31,7 +31,7 @@ public class BusinessChoiceChromeTest1to10 {
 		driver.manage().window().maximize();
 		System.out.println("Hi, how are you today?"+ " This is the test for "+ url);
 		//Lunch the URL
-		String url1 = "https://ecom:ec0m@staging.www" + url;
+		String url1 = "https://www" + url;
 		try {
 			Thread.sleep(3000l);
 		} catch (InterruptedException e) {
@@ -46,8 +46,8 @@ public class BusinessChoiceChromeTest1to10 {
 			e.printStackTrace();
 		}
 		//Sign in with the member details
-		driver.findElement(By.xpath("//div[contains(@class,'m-bottom-15 emailPCR')]/input")).sendKeys("115234805");
-		driver.findElement(By.xpath("//div[contains(@class,'m-bottom-15 pinPCR')]/input")).sendKeys("7890");
+		driver.findElement(By.xpath("//div[contains(@class,'m-bottom-15 emailPCR')]/input")).sendKeys("129924419");
+		driver.findElement(By.xpath("//div[contains(@class,'m-bottom-15 pinPCR')]/input")).sendKeys("se ");
 		driver.findElement(By.xpath("//button[@id='tpiSubmitButton']")).click();
 		//Navigates to the Corporate page
 		try {
@@ -61,7 +61,7 @@ public class BusinessChoiceChromeTest1to10 {
 		js.executeScript("arguments[0].scrollIntoView();", Element);
 		driver.findElement(By.xpath("//input[@id='destination']")).click();
 		//Randomize the value in the destination field
-		List<String> givenList = Arrays.asList("Tallahassee, Florida, United States", "Boston, Massachusetts, United States", "Chicago, IL, USA", "Bloomington, Minnesota, United States","San Francisco, CA, USA" );
+		List<String> givenList = Arrays.asList("Miami, Florida, USA", "Denver, Colorado, United States", "Austin, Texas, United States", "Kansas City, Kansas, United States","Camden, Arkansas, United States" );
 		Random rand = new Random();
 	    String randomElement = givenList.get(rand.nextInt(givenList.size()));
 		driver.findElement(By.xpath("//input[@id='destination']")).sendKeys(randomElement);
@@ -234,7 +234,7 @@ public class BusinessChoiceChromeTest1to10 {
 	
 	Object[] data = new Object[10];
 	
-	String bchome = ".ihg.com/hotels/us/en/global/bc/home";
+	/*String bchome = ".ihg.com/hotels/us/en/global/bc/home";
 	String threem = ".ihg.com/hotels/us/en/global/bc/3m?corporateNumber=101672";
 	String att = ".ihg.com/hotels/us/en/global/bc/att?corporateNumber=150711";
 	String air = ".ihg.com/hotels/us/en/global/bc/air_products?corporateNumber=106861";
@@ -244,7 +244,8 @@ public class BusinessChoiceChromeTest1to10 {
 	String brinker =".ihg.com/hotels/us/en/global/bc/brinker?corporateNumber=100862233";
 	String collective = ".ihg.com/hotels/us/en/global/bc/collective?corporateNumber=100189116";
 	String comair= ".ihg.com/hotels/us/en/global/bc/comair?corporateNumber=100861831";
-	/*String conway = ".ihg.com/hotels/us/en/global/bc/conway?corporateNumber=100224634";
+	*/
+	String conway = ".ihg.com/hotels/us/en/global/bc/conway?corporateNumber=100224634";
 	String cypress = ".ihg.com/hotels/us/en/global/bc/cyprexx?corporateNumber=100273209";
 	String delphi = ".ihg.com/hotels/us/en/global/bc/delphi?corporateNumber=100185640";
 	String dresser = ".ihg.com/hotels/us/en/global/bc/dresser?corporateNumber=127256";
@@ -254,7 +255,7 @@ public class BusinessChoiceChromeTest1to10 {
 	String ericsson = ".ihg.com/hotels/us/en/global/bc/ericsson?corporateNumber=954299722";
 	String faa = ".ihg.com/hotels/us/en/global/bc/faa?corporateNumber=100185863";
 	String fedex = ".ihg.com/hotels/us/en/global/bc/fedex?corporateNumber=109207";
-	String gecapital = ".ihg.com/hotels/us/en/global/bc/ge_capital?corporateNumber=249807";
+	/*String gecapital = ".ihg.com/hotels/us/en/global/bc/ge_capital?corporateNumber=249807";
 	String gemedical = ".ihg.com/hotels/us/en/global/bc/ge_medical?corporateNumber=100186692";
 	String ge = ".ihg.com/hotels/us/en/global/bc/ge?corporateNumber=102806";
 	String honda = ".ihg.com/hotels/us/en/global/bc/honda?corporateNumber=100371240";
@@ -281,7 +282,7 @@ public class BusinessChoiceChromeTest1to10 {
 	String wasteMgt = ".ihg.com/hotels/us/en/global/bc/waste_mgt?corporateNumber=123137";
 	String zenon = ".ihg.com/hotels/us/en/global/bc/zenon?corporateNumber=900000935";
 	*/
-	data[0]=bchome;
+	/*data[0]=bchome;
 	data[1]= threem ;
 	data[2]= att;
 	data[3]= air;
@@ -290,18 +291,18 @@ public class BusinessChoiceChromeTest1to10 {
 	data[6] = barcklays;
 	data[7]= brinker;
 	data[8]= collective;
-	data[9]= comair;
-	/*data[10]= conway;
-	data[11]= cypress;
-	data[12]= delphi;
-	data[13]= dresser;
-	data[14]= eds;
-	data[15]= ericssongold;
-	data[16]= ericssonab;
-	data[17]= ericsson;
-	data[18]= faa;
-	data[19]= fedex;
-	data[20]= gecapital;
+	data[9]= comair;*/
+	data[0]= conway;
+	data[1]= cypress;
+	data[2]= delphi;
+	data[3]= dresser;
+	data[4]= eds;
+	data[5]= ericssongold;
+	data[6]= ericssonab;
+	data[7]= ericsson;
+	data[8]= faa;
+	data[9]= fedex;
+	/*data[20]= gecapital;
 	data[21]= gemedical;
 	data[22]= ge;
 	data[23]= honda;

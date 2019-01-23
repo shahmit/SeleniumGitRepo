@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class BusinessChoiceChromeTest1to10 {
+public class BusinessChoiceChromeTest40to46 {
   
 	static WebDriver driver;
 	@Test(dataProvider= "URLsfromCorps") 

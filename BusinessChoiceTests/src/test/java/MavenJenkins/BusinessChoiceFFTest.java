@@ -31,7 +31,7 @@ public class BusinessChoiceFFTest {
 		driver.manage().window().maximize();
 		System.out.println("Hi, how are you today?");
 		//Lunch the URL
-		String url1 = "https://ecom:ec0m@staging.www" + url;
+		String url1 = "https://www" + url;
 		driver.get(url1);
 		try {
 			Thread.sleep(3000l);
